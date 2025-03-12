@@ -16,5 +16,47 @@
             </asp:ContentPlaceHolder>
         </div>
     </form>
+
+    <p1>Robert Andrés Radu Guzumas - 17611989S</p1>
+    <br />
+    <p2>Iván Soler Sánchez - 74530257E</p2>
+
+    <h1 align="center" style="background-color:#32cbcb; padding:50px">
+        HADA P3 - CURSO 2024/2025
+    </h1>
+
+    <h1>
+        Products management
+    </h1>
+
+    <form>
+        <label style="padding-right:10px">Code</label>
+        <input type="text" size="35px"/>
+        <br />
+        <br />
+        <label style="padding-right:10px">Name</label>
+        <input type="text" size="35px" />
+        <br />
+        <br />
+        <label style="padding-right:10px">Amount</label>
+        <input type="number" size="15px" />
+        <br />
+        <br />
+        <label style="padding-right:10px">Category</label>
+        <select>
+            <option>Computing</option>
+            <option>Telephony</option>
+            <option>Gaming</option>
+            <option>Home appliances</option>
+        </select>
+        <br />
+        <br />
+        <label style="padding-right:10px">Price</label>
+        <input type="number" size="15px"/>
+        <br />
+        <br />
+        <label style="padding-right:10px">Creation date</label>
+        <input type="date" size="25px" />
+    </form>
 </body>
 </html>
