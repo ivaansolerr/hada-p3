@@ -29,7 +29,7 @@
         Products management
     </h1>
 
-    <form>
+    <form id="form1" runat="server">
         <label style="padding-right:10px">Code</label>
         <input type="text" size="35px"/>
         <br />
@@ -55,8 +55,8 @@
         <input type="number" size="15px"/>
         <br />
         <br />
-        <label style="padding-right:10px">Creation date</label>
-        <input type="date" size="25px" />
+        <label style="padding-right:10px; margin-bottom:20px">Creation date</label>
+        <input style="margin-bottom:20px" type="date" size="25px" 
     </form>
 </body>
 </html>
