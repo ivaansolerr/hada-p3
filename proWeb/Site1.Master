@@ -8,9 +8,25 @@
     <title></title>
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
+
+    <style>
+        .mDB {
+            margin-left: 10px;
+        }
+        
+        .fLB {
+            padding-right: 10px;
+        }
+
+        .inNumb {
+            width: 90px;
+        }
+
+    </style>
 </head>
+
 <body>
-    <form id="form1" runat="server">
+    <form id="form1">
         <div>
             <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
             </asp:ContentPlaceHolder>
@@ -24,25 +40,24 @@
     <h1 align="center" style="background-color:#32cbcb; padding:50px">
         HADA P3 - CURSO 2024/2025
     </h1>
-
     <h1>
         Products management
     </h1>
 
-    <form id="form1" runat="server">
-        <label style="padding-right:10px">Code</label>
-        <input type="text" size="35px"/>
+    <form id="f1" runat="server">
+        <label class="fLB" >Code</label>
+        <input size="35" type="text"/>
         <br />
         <br />
-        <label style="padding-right:10px">Name</label>
-        <input type="text" size="35px" />
+        <label class="fLB" >Name</label>
+        <input size="35" type="text"/>
         <br />
         <br />
-        <label style="padding-right:10px">Amount</label>
-        <input type="number" size="15px" />
+        <label class="fLB" >Amount</label>
+        <input class="inNumb" type="number" />
         <br />
         <br />
-        <label style="padding-right:10px">Category</label>
+        <label class="fLB" >Category</label>
         <select>
             <option>Computing</option>
             <option>Telephony</option>
@@ -51,12 +66,22 @@
         </select>
         <br />
         <br />
-        <label style="padding-right:10px">Price</label>
-        <input type="number" size="15px"/>
+        <label class="fLB">Price</label>
+        <input class="inNumb" type="number"/>
         <br />
         <br />
-        <label style="padding-right:10px; margin-bottom:20px">Creation date</label>
-        <input style="margin-bottom:20px" type="date" size="25px" 
+        <label class="fLB" style="margin-bottom:20px">Creation date</label>
+        <input placeholder="" style="margin-bottom:20px" type="date" />
+        <br />
+
+        <asp:Button ID="Button1" runat="server" Text="Create" />        
+        <asp:Button ID="Button2" class="mDB" runat="server" Text="Update" />
+        <asp:Button ID="Button3" class="mDB" runat="server" Text="Delete" />
+        <asp:Button ID="Button4" class="mDB" runat="server" Text="Read" />
+        <asp:Button ID="Button5" class="mDB" runat="server" Text="Read First" />
+        <asp:Button ID="Button6" class="mDB" runat="server" Text="Read Prev" />
+        <asp:Button ID="Button7" class="mDB" runat="server" Text="Read Next" />
+
     </form>
 </body>
 </html>
