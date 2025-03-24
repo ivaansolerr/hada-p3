@@ -19,15 +19,24 @@ namespace library
         public CADProduct()
         {
             this.constring = ConfigurationManager.ConnectionStrings["MyDBConnection"].ConnectionString;
-            SqlConnection myDb = new SqlConnection(constring);
-            using (myDb)
-            {
-                myDb.Open(); // idk if this has to be done in every method, I think so
-            }
         }
 
         public bool Create(ENProduct product)
         {
+            try
+            {
+                SqlConnection myDb = new SqlConnection(constring);
+                using (myDb)
+                {
+                    myDb.Open(); 
+                    // create
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("User operation has failed. Error: {0}", ex.Message);
+                return false;
+            }
 
             return true;
         }
