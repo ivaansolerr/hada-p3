@@ -12,6 +12,7 @@ namespace library
         private string _name;
         private int _amount;
         private float _price;
+        private int _category;
         private DateTime _creationDate;
 
         public string Code
@@ -22,6 +23,8 @@ namespace library
             { get { return _amount; } set { _amount = value; } }
         public float Price
             { get { return _price; } set { _price = value; } }
+        public int Category
+            { get { return _category; } set { _category = value; } }
         public DateTime CreationDate
             { get { return _creationDate; } set { _creationDate = value; } }
 
@@ -31,20 +34,17 @@ namespace library
             Name = string.Empty;
             Amount = 0;
             Price = 0;
+            Category = -1;
             CreationDate = DateTime.MinValue;
         }
 
-        public ENProduct(string code, string name, int amount, float price, DateTime creationDate)
+        public ENProduct(string code, string name, int amount, float price, int category, DateTime creationDate)
         {
             Code = code;
             Name = name;
             Amount = amount;
             Price = price;
-            CreationDate = creationDate;
-            Code = code;
-            Name = name;
-            Amount = amount;
-            Price = price;
+            Category = category;
             CreationDate = creationDate;
         }
 

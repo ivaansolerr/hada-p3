@@ -14,39 +14,151 @@ namespace proWeb
         {
          
         }
-        protected void Button1_click(object sender, EventArgs e)
+        protected void btnCreate_Click(object sender, EventArgs e)
         {
+            ENProduct newProduct = new ENProduct();
 
+            newProduct.Code = txtCode.Text;
+            newProduct.Name = txtName.Text;
+            newProduct.Amount = int.Parse(txtAmount.Text);
+            newProduct.Price = float.Parse(txtPrice.Text);
+
+            string cat = ddlCategory.Text;
+
+            if (cat == "Computing") newProduct.Category = 0;
+            if (cat == "Telephony") newProduct.Category = 1;
+            if (cat == "Gaming") newProduct.Category= 2;
+            if (cat == "Home appliances") newProduct.Category= 3;
+
+            newProduct.CreationDate = DateTime.Parse(txtCreationDate.Text);
+
+            newProduct.Create();
         }
 
-        protected void Button2_click(object sender, EventArgs e)
+        protected void btnUpdate_Click(object sender, EventArgs e)
         {
+            ENProduct newProduct = new ENProduct();
 
+            newProduct.Code = txtCode.Text;
+            newProduct.Name = txtName.Text;
+            newProduct.Amount = int.Parse(txtAmount.Text);
+            newProduct.Price = float.Parse(txtPrice.Text);
+
+            string cat = ddlCategory.Text;
+
+            if (cat == "Computing") newProduct.Category = 0;
+            if (cat == "Telephony") newProduct.Category = 1;
+            if (cat == "Gaming") newProduct.Category = 2;
+            if (cat == "Home appliances") newProduct.Category = 3;
+
+            newProduct.CreationDate = DateTime.Parse(txtCreationDate.Text);
+
+            newProduct.Update();
         }
 
-        protected void Button3_click(object sender, EventArgs e)
+        protected void btnDelete_Click(object sender, EventArgs e)
         {
+            ENProduct newProduct = new ENProduct();
 
+            newProduct.Code = txtCode.Text;
+            newProduct.Name = txtName.Text;
+            newProduct.Amount = int.Parse(txtAmount.Text);
+            newProduct.Price = float.Parse(txtPrice.Text);
+
+            string cat = ddlCategory.Text;
+
+            if (cat == "Computing") newProduct.Category = 0;
+            if (cat == "Telephony") newProduct.Category = 1;
+            if (cat == "Gaming") newProduct.Category = 2;
+            if (cat == "Home appliances") newProduct.Category = 3;
+
+            newProduct.CreationDate = DateTime.Parse(txtCreationDate.Text);
+
+            newProduct.Delete();
         }
 
-        protected void Button4_click(object sender, EventArgs e)
+        protected void btnRead_Click(object sender, EventArgs e)
         {
+            ENProduct newProduct = new ENProduct();
 
+            newProduct.Code = txtCode.Text;
+            newProduct.Name = txtName.Text;
+            newProduct.Amount = int.Parse(txtAmount.Text);
+            newProduct.Price = float.Parse(txtPrice.Text);
+
+            string cat = ddlCategory.Text;
+
+            if (cat == "Computing") newProduct.Category = 0;
+            if (cat == "Telephony") newProduct.Category = 1;
+            if (cat == "Gaming") newProduct.Category = 2;
+            if (cat == "Home appliances") newProduct.Category = 3;
+
+            newProduct.CreationDate = DateTime.Parse(txtCreationDate.Text);
+
+            newProduct.Read();
         }
 
-        protected void Button5_click(object sender, EventArgs e)
+        protected void btnReadFirst_Click(object sender, EventArgs e)
         {
+            ENProduct newProduct = new ENProduct();
 
+            newProduct.Code = txtCode.Text;
+            newProduct.Name = txtName.Text;
+            newProduct.Amount = int.Parse(txtAmount.Text);
+            newProduct.Price = float.Parse(txtPrice.Text);
+
+            string cat = ddlCategory.Text;
+
+            if (cat == "Computing") newProduct.Category = 0;
+            if (cat == "Telephony") newProduct.Category = 1;
+            if (cat == "Gaming") newProduct.Category = 2;
+            if (cat == "Home appliances") newProduct.Category = 3;
+
+            newProduct.CreationDate = DateTime.Parse(txtCreationDate.Text);
+
+            newProduct.ReadFirst();
         }
 
-        protected void Button6_click(object sender, EventArgs e)
+        protected void btnReadPrev_Click(object sender, EventArgs e)
         {
+            ENProduct newProduct = new ENProduct();
 
+            newProduct.Code = txtCode.Text;
+            newProduct.Name = txtName.Text;
+            newProduct.Amount = int.Parse(txtAmount.Text);
+            newProduct.Price = float.Parse(txtPrice.Text);
+
+            string cat = ddlCategory.Text;
+
+            if (cat == "Computing") newProduct.Category = 0;
+            if (cat == "Telephony") newProduct.Category = 1;
+            if (cat == "Gaming") newProduct.Category = 2;
+            if (cat == "Home appliances") newProduct.Category = 3;
+
+            newProduct.CreationDate = DateTime.Parse(txtCreationDate.Text);
+
+            newProduct.ReadPrev();
         }
 
-        protected void Button7_click(object sender, EventArgs e)
+        protected void btnReadNext_Click(object sender, EventArgs e)
         {
+            ENProduct newProduct = new ENProduct();
 
+            newProduct.Code = txtCode.Text;
+            newProduct.Name = txtName.Text;
+            newProduct.Amount = int.Parse(txtAmount.Text);
+            newProduct.Price = float.Parse(txtPrice.Text);
+
+            string cat = ddlCategory.Text;
+
+            if (cat == "Computing") newProduct.Category = 0;
+            if (cat == "Telephony") newProduct.Category = 1;
+            if (cat == "Gaming") newProduct.Category = 2;
+            if (cat == "Home appliances") newProduct.Category = 3;
+
+            newProduct.CreationDate = DateTime.Parse(txtCreationDate.Text);
+
+            newProduct.ReadNext();
         }
     }
 }
