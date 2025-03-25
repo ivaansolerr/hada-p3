@@ -116,3 +116,5 @@ C:\Users\GAME\Desktop\class tools\Hada\hada-p3\proWeb\obj\Debug\proWeb.csproj.Co
 C:\Users\GAME\Desktop\class tools\Hada\hada-p3\proWeb\obj\Debug\proWeb.csproj.Up2Date
 C:\Users\GAME\Desktop\class tools\Hada\hada-p3\proWeb\obj\Debug\proWeb.dll
 C:\Users\GAME\Desktop\class tools\Hada\hada-p3\proWeb\obj\Debug\proWeb.pdb
+C:\Users\GAME\Desktop\class tools\Hada\hada-p3\proWeb\bin\library.dll
+C:\Users\GAME\Desktop\class tools\Hada\hada-p3\proWeb\bin\library.pdb

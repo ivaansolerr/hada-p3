@@ -1,0 +1,6 @@
+C:\Users\GAME\Desktop\class tools\Hada\hada-p3\library\obj\Debug\library.csproj.AssemblyReference.cache
+C:\Users\GAME\Desktop\class tools\Hada\hada-p3\library\obj\Debug\library.csproj.CoreCompileInputs.cache
+C:\Users\GAME\Desktop\class tools\Hada\hada-p3\library\bin\Debug\library.dll
+C:\Users\GAME\Desktop\class tools\Hada\hada-p3\library\bin\Debug\library.pdb
+C:\Users\GAME\Desktop\class tools\Hada\hada-p3\library\obj\Debug\library.dll
+C:\Users\GAME\Desktop\class tools\Hada\hada-p3\library\obj\Debug\library.pdb
