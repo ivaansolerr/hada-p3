@@ -80,6 +80,8 @@ namespace library
                         cmd.Parameters.AddWithValue("@Value6", product.CreationDate);
 
                         cmd.ExecuteNonQuery();
+
+                        myDb.Close();
                     }
                 }
             }
@@ -101,6 +103,16 @@ namespace library
                 {
                     myDb.Open();
                     // insert
+                    string insertQuery = "DELETE FROM Products where id=@Value1";
+                    SqlCommand cmd = new SqlCommand(insertQuery, myDb);
+                    using (cmd)
+                    {
+                        cmd.Parameters.AddWithValue("@Value1", product.Id);
+
+                        cmd.ExecuteNonQuery();
+
+                        myDb.Close();
+                    }
                 }
             }
             catch (Exception ex)
@@ -121,6 +133,20 @@ namespace library
                 {
                     myDb.Open();
                     // insert
+                    string insertQuery = "SELECT * from products WHERE id=@Value1";
+                    SqlCommand cmd = new SqlCommand(insertQuery, myDb);
+                    using (cmd)
+                    {
+                        cmd.Parameters.AddWithValue("@Value1", product.Id);
+
+                        SqlDataReader readd = cmd.ExecuteReader();
+                        while (readd.Read())
+                        {
+
+                        }
+
+                        myDb.Close();
+                    }
                 }
             }
             catch (Exception ex)
