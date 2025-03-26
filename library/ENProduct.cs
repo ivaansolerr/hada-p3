@@ -9,9 +9,7 @@ namespace library
 {
     public class ENProduct
     {
-        private static int ID = 0;
 
-        private int _id;
         private string _code;
         private string _name;
         private int _amount;
@@ -19,8 +17,6 @@ namespace library
         private int _category;
         private DateTime _creationDate;
 
-        public int Id
-        { get { return _id; } set { _id = value; } }
         public string Code
             { get { return _code; } set { _code = value; } }
         public string Name
@@ -41,8 +37,6 @@ namespace library
             Amount = 0;
             Price = 0;
             Category = -1;
-            Id = ID;
-            ID++;
             CreationDate = DateTime.MinValue;
         }
 
@@ -53,8 +47,6 @@ namespace library
             Amount = amount;
             Price = price;
             Category = category;
-            Id = ID;
-            ID++;
             CreationDate = creationDate;
         }
 

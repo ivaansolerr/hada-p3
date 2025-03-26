@@ -32,18 +32,19 @@ namespace library
                 {
                     myDb.Open();
                     // insert
-                    string insertQuery = "INSERT INTO Products (id,name,code,amount,price,category,creationDate)" +
-                        " VALUES (@Value1, @Value2, @Value3, @Value4, @Value5, @Value6, @Value7)";
+                    string insertQuery = "INSERT INTO Products (name,code,amount,price,category,creationDate)" +
+                        " VALUES (@Value1, @Value2, @Value3, @Value4, @Value5, @Value6)";
                     SqlCommand cmd = new SqlCommand(insertQuery, myDb);
                     using (cmd)
                     {
-                        cmd.Parameters.AddWithValue("@Value1", product.Id);
                         cmd.Parameters.AddWithValue("@Value1", product.Name);
                         cmd.Parameters.AddWithValue("@Value2", product.Code);
                         cmd.Parameters.AddWithValue("@Value3", product.Amount);
                         cmd.Parameters.AddWithValue("@Value4", product.Price);
                         cmd.Parameters.AddWithValue("@Value5", product.Category);
                         cmd.Parameters.AddWithValue("@Value6", product.CreationDate);
+
+                        //Console.WriteLine(insertQuery);
 
                         cmd.ExecuteNonQuery();
                     }
@@ -67,13 +68,12 @@ namespace library
                 {
                     myDb.Open();
                     // insert
-                    string insertQuery = "UPDATE Products set id=@Value1,name=@Value2,code=@Value3,amount=@Value4,price=@Value5,category=@Value6,creationDate=@Value7";
+                    string insertQuery = "UPDATE Products set name=@Value2,amount=@Value3,price=@Value4,category=@Value5,creationDate=@Value6";
                     SqlCommand cmd = new SqlCommand(insertQuery, myDb);
                     using (cmd)
                     {
-                        cmd.Parameters.AddWithValue("@Value1", product.Id);
-                        cmd.Parameters.AddWithValue("@Value1", product.Name);
-                        cmd.Parameters.AddWithValue("@Value2", product.Code);
+
+                        cmd.Parameters.AddWithValue("@Value2", product.Name);
                         cmd.Parameters.AddWithValue("@Value3", product.Amount);
                         cmd.Parameters.AddWithValue("@Value4", product.Price);
                         cmd.Parameters.AddWithValue("@Value5", product.Category);
@@ -103,11 +103,11 @@ namespace library
                 {
                     myDb.Open();
                     // insert
-                    string insertQuery = "DELETE FROM Products where id=@Value1";
+                    string insertQuery = "DELETE FROM Products where code=@Value1";
                     SqlCommand cmd = new SqlCommand(insertQuery, myDb);
                     using (cmd)
                     {
-                        cmd.Parameters.AddWithValue("@Value1", product.Id);
+                        cmd.Parameters.AddWithValue("@Value1", product.Code);
 
                         cmd.ExecuteNonQuery();
 
@@ -133,11 +133,11 @@ namespace library
                 {
                     myDb.Open();
                     // insert
-                    string insertQuery = "SELECT * from products WHERE id=@Value1";
+                    string insertQuery = "SELECT * from products WHERE code=@Value1";
                     SqlCommand cmd = new SqlCommand(insertQuery, myDb);
                     using (cmd)
                     {
-                        cmd.Parameters.AddWithValue("@Value1", product.Id);
+                        cmd.Parameters.AddWithValue("@Value1", product.Code);
 
                         SqlDataReader readd = cmd.ExecuteReader();
                         while (readd.Read())

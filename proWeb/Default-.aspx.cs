@@ -14,7 +14,7 @@ namespace proWeb
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            // categories
         }
         protected void btnCreate_Click(object sender, EventArgs e)
         {
