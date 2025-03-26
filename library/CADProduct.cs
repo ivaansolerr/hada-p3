@@ -68,11 +68,11 @@ namespace library
                 {
                     myDb.Open();
                     // insert
-                    string insertQuery = "UPDATE Products set name=@Value2,amount=@Value3,price=@Value4,category=@Value5,creationDate=@Value6";
+                    string insertQuery = "UPDATE Products SET name=@Value2,amount=@Value3,price=@Value4,category=@Value5,creationDate=@Value6 WHERE code=@Value1";
                     SqlCommand cmd = new SqlCommand(insertQuery, myDb);
                     using (cmd)
                     {
-
+                        cmd.Parameters.AddWithValue("@Value1", product.Code);
                         cmd.Parameters.AddWithValue("@Value2", product.Name);
                         cmd.Parameters.AddWithValue("@Value3", product.Amount);
                         cmd.Parameters.AddWithValue("@Value4", product.Price);
