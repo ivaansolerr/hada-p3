@@ -285,6 +285,8 @@ namespace library
                                 {
                                     ENProduct prev = new ENProduct(list[i - 1].Code, list[i - 1].Name, list[i - 1].Amount, list[i - 1].Price, list[i - 1].Category, list[i - 1].CreationDate);
                                     // this is the product to show
+
+                                    return true;
                                 }
                             }
                         }
