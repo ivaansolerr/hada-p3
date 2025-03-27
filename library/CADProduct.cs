@@ -173,7 +173,28 @@ namespace library
                 using (myDb)
                 {
                     myDb.Open();
-                    // insert
+                    string insertQuery = "SELECT TOP (1) * from Products";
+                    SqlCommand cmd = new SqlCommand(insertQuery, myDb);
+                    using (cmd)
+                    {
+                        cmd.Parameters.AddWithValue("@Value1", product.Code);
+
+                        SqlDataReader readd = cmd.ExecuteReader();
+
+                        while (readd.Read())
+                        {
+                            string name = readd["name"].ToString();
+                            string code = readd["code"].ToString();
+                            int amount = int.Parse(readd["amount"].ToString());
+                            float price = float.Parse(readd["price"].ToString());
+                            int category = int.Parse(readd["category"].ToString());
+                            DateTime date = DateTime.Parse(readd["creationDate"].ToString());
+
+                            // mostrarlo no sé como
+                        }
+
+                        myDb.Close();
+                    }
                 }
             }
             catch (Exception ex)
