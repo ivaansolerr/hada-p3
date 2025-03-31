@@ -16,10 +16,6 @@
 
     <asp:Label CssClass="fLB" runat="server" Text="Category"></asp:Label>
     <asp:DropDownList ID="ddlCategory" runat="server">
-        <asp:ListItem Text="Computing" Value="Computing"></asp:ListItem>
-        <asp:ListItem Text="Telephony" Value="Telephony"></asp:ListItem>
-        <asp:ListItem Text="Gaming" Value="Gaming"></asp:ListItem>
-        <asp:ListItem Text="Home appliances" Value="Home appliances"></asp:ListItem>
     </asp:DropDownList>
     <br /><br />
 
