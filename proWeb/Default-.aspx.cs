@@ -27,6 +27,11 @@ namespace proWeb
 
             list = cADCategory.readAll();
 
+            if (ddlCategory.Items.Count > 0)
+            {
+                ddlCategory.Items.Clear();
+            }
+
             foreach (ENCategory c in list)
             {
                 ddlCategory.Items.Add(c.Name);
