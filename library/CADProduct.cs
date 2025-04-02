@@ -210,7 +210,7 @@ namespace library
                 using (myDb)
                 {
                     myDb.Open();
-                    string insertQuery = "SELECT * from products WHERE code=@Value1";
+                    string insertQuery = "SELECT * from products";
                     SqlCommand cmd = new SqlCommand(insertQuery, myDb);
                     using (cmd)
                     {
@@ -218,7 +218,8 @@ namespace library
 
                         SqlDataReader readd = cmd.ExecuteReader();
 
-                        if (readd.Read()) {};
+                        while (readd.Read() && readd["code"].ToString() != product.Code) {
+                        };
 
                         if (readd.Read())
                         {
@@ -251,11 +252,11 @@ namespace library
                 using (myDb)
                 {
                     myDb.Open();
-                    string insertQuery = "SELECT TOP (1) * from Products";
+                    string insertQuery = "SELECT * from Products";
                     SqlCommand cmd = new SqlCommand(insertQuery, myDb);
                     using (cmd)
                     {
-                        cmd.Parameters.AddWithValue("@Value1", product.Code);
+                        //cmd.Parameters.AddWithValue("@Value1", product.Code);
 
                         SqlDataReader readd = cmd.ExecuteReader();
 
@@ -267,12 +268,15 @@ namespace library
                             float price = float.Parse(readd["price"].ToString());
                             int category = int.Parse(readd["category"].ToString());
                             DateTime date = DateTime.Parse(readd["creationDate"].ToString());
-                            ENProduct en = new ENProduct(name,code,amount,price,category,date);
+                            ENProduct en = new ENProduct(code, name, amount,price,category,date);
                             list.Add(en);
                         }
 
+                        readd.Close();
+
                         for (int i = 0; i < list.Count; i++)
                         {
+                            
                             if (list[i].Code == product.Code)
                             {
                                 if (i >= 1)
