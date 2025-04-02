@@ -16,25 +16,12 @@ namespace proWeb
         {
             CADCategory cADCategory = new CADCategory();
 
-            ENCategory enC = new ENCategory();
-            enC.Id = 1;
-
-            cADCategory.read(enC);
-
-            ENCategory enC1 = new ENCategory();
-            enC1.Id = 2;
-
-            cADCategory.read(enC1);
-
-            ENCategory enC2 = new ENCategory();
-            enC2.Id = 3;
-
-            cADCategory.read(enC2);
-
-            ENCategory enC3 = new ENCategory();
-            enC3.Id = 4;
-
-            cADCategory.read(enC3);
+            for (int i = 1; i <= 4; i++)
+            {
+                ENCategory newC = new ENCategory();
+                newC.Id = i;
+                cADCategory.read(newC);
+            }
 
             List<ENCategory> list = new List<ENCategory>();
 
@@ -93,6 +80,13 @@ namespace proWeb
             newProduct.CreationDate = DateTime.Parse(txtCreationDate.Text);
 
             newProduct.Update();
+
+            txtCode.Text = null;
+            txtName.Text = null;
+            txtAmount.Text = null;
+            txtPrice.Text = null;
+            ddlCategory.Text = null;
+            txtCreationDate.Text = null;
         }
 
         protected void btnDelete_Click(object sender, EventArgs e)
@@ -102,6 +96,13 @@ namespace proWeb
             newProduct.Code = txtCode.Text;
 
             newProduct.Delete();
+
+            txtCode.Text = null;
+            txtName.Text = null;
+            txtAmount.Text = null;
+            txtPrice.Text = null;
+            ddlCategory.Text = null;
+            txtCreationDate.Text = null;
         }
 
         protected void btnRead_Click(object sender, EventArgs e)
@@ -123,7 +124,7 @@ namespace proWeb
             if (cat == 2) ddlCategory.Text = "Gaming";
             if (cat == 3) ddlCategory.Text = "Home appliances";
 
-            txtCreationDate.Text = newProduct.CreationDate.ToString();
+            txtCreationDate.Text = newProduct.CreationDate.ToString("yyyy-MM-dd");
         }
 
         protected void btnReadFirst_Click(object sender, EventArgs e)
