@@ -8,8 +8,6 @@ namespace library
 { 
     public class ENCategory
     {
-        private static int ID = 0;
-
         private int _id;
         private string _name;
 
@@ -19,11 +17,23 @@ namespace library
         public string Name
         { get { return _name; } set { _name = value; } }
 
+        public ENCategory()
+        {
+            Id = 0;
+            Name = null;
+        }
+
         public ENCategory(int id, string name)
         {
             Id = id;
-            ID++;
             Name = name;
+        }
+
+        public bool addCategory()
+        {
+            CADCategory category = new CADCategory();
+            if (category.read(this)) return true;
+            return false;
         }
     }
 }

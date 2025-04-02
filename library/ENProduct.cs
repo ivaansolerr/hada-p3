@@ -18,17 +18,17 @@ namespace library
         private DateTime _creationDate;
 
         public string Code
-            { get { return _code; } set { _code = value; } }
+        { get { return _code; } set { _code = value; } }
         public string Name
-            { get { return _name; } set {_name = value; } }
+        { get { return _name; } set { _name = value; } }
         public int Amount
-            { get { return _amount; } set { _amount = value; } }
+        { get { return _amount; } set { _amount = value; } }
         public float Price
-            { get { return _price; } set { _price = value; } }
+        { get { return _price; } set { _price = value; } }
         public int Category
-            { get { return _category; } set { _category = value; } }
+        { get { return _category; } set { _category = value; } }
         public DateTime CreationDate
-            { get { return _creationDate; } set { _creationDate = value; } }
+        { get { return _creationDate; } set { _creationDate = value; } }
 
         public ENProduct()
         {

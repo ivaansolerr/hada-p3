@@ -142,14 +142,12 @@ namespace library
 
                         if (readd.Read())
                         {
-                            string name = readd["name"].ToString();
-                            string code = readd["code"].ToString();
-                            int amount = int.Parse(readd["amount"].ToString());
-                            float price = float.Parse(readd["price"].ToString());
-                            int category = int.Parse(readd["category"].ToString());
-                            DateTime date = DateTime.Parse(readd["creationDate"].ToString());
-
-                            // mostrarlo no sé como
+                            product.Name = readd["name"].ToString();
+                            product.Code = readd["code"].ToString();
+                            product.Amount = int.Parse(readd["amount"].ToString());
+                            product.Price = float.Parse(readd["price"].ToString());
+                            product.Category = int.Parse(readd["category"].ToString());
+                            product.CreationDate = DateTime.Parse(readd["creationDate"].ToString());
                         }
 
                         myDb.Close();
@@ -183,14 +181,12 @@ namespace library
 
                         if (readd.Read())
                         {
-                            string name = readd["name"].ToString();
-                            string code = readd["code"].ToString();
-                            int amount = int.Parse(readd["amount"].ToString());
-                            float price = float.Parse(readd["price"].ToString());
-                            int category = int.Parse(readd["category"].ToString());
-                            DateTime date = DateTime.Parse(readd["creationDate"].ToString());
-
-                            // mostrarlo no sé como
+                            product.Name = readd["name"].ToString();
+                            product.Code = readd["code"].ToString();
+                            product.Amount = int.Parse(readd["amount"].ToString());
+                            product.Price = float.Parse(readd["price"].ToString());
+                            product.Category = int.Parse(readd["category"].ToString());
+                            product.CreationDate = DateTime.Parse(readd["creationDate"].ToString());
                         }
 
                         myDb.Close();
@@ -214,7 +210,7 @@ namespace library
                 using (myDb)
                 {
                     myDb.Open();
-                    string insertQuery = "SELECT TOP (1) * from Products";
+                    string insertQuery = "SELECT * from products";
                     SqlCommand cmd = new SqlCommand(insertQuery, myDb);
                     using (cmd)
                     {
@@ -222,18 +218,17 @@ namespace library
 
                         SqlDataReader readd = cmd.ExecuteReader();
 
-                        if (readd.Read()) { };
+                        while (readd.Read() && readd["code"].ToString() != product.Code) {
+                        };
 
                         if (readd.Read())
                         {
-                            string name = readd["name"].ToString();
-                            string code = readd["code"].ToString();
-                            int amount = int.Parse(readd["amount"].ToString());
-                            float price = float.Parse(readd["price"].ToString());
-                            int category = int.Parse(readd["category"].ToString());
-                            DateTime date = DateTime.Parse(readd["creationDate"].ToString());
-
-                            // mostrarlo no sé como
+                            product.Name = readd["name"].ToString();
+                            product.Code = readd["code"].ToString();
+                            product.Amount = int.Parse(readd["amount"].ToString());
+                            product.Price = float.Parse(readd["price"].ToString());
+                            product.Category = int.Parse(readd["category"].ToString());
+                            product.CreationDate = DateTime.Parse(readd["creationDate"].ToString());
                         }
 
                         myDb.Close();
@@ -257,11 +252,11 @@ namespace library
                 using (myDb)
                 {
                     myDb.Open();
-                    string insertQuery = "SELECT TOP * from Products";
+                    string insertQuery = "SELECT * from Products";
                     SqlCommand cmd = new SqlCommand(insertQuery, myDb);
                     using (cmd)
                     {
-                        cmd.Parameters.AddWithValue("@Value1", product.Code);
+                        //cmd.Parameters.AddWithValue("@Value1", product.Code);
 
                         SqlDataReader readd = cmd.ExecuteReader();
 
@@ -273,18 +268,27 @@ namespace library
                             float price = float.Parse(readd["price"].ToString());
                             int category = int.Parse(readd["category"].ToString());
                             DateTime date = DateTime.Parse(readd["creationDate"].ToString());
-                            ENProduct en = new ENProduct(name,code,amount,price,category,date);
+                            ENProduct en = new ENProduct(code, name, amount,price,category,date);
                             list.Add(en);
                         }
 
+                        readd.Close();
+
                         for (int i = 0; i < list.Count; i++)
                         {
+                            
                             if (list[i].Code == product.Code)
                             {
                                 if (i >= 1)
                                 {
                                     ENProduct prev = new ENProduct(list[i - 1].Code, list[i - 1].Name, list[i - 1].Amount, list[i - 1].Price, list[i - 1].Category, list[i - 1].CreationDate);
-                                    // this is the product to show
+                                    
+                                    product.Name = prev.Name;
+                                    product.Code = prev.Code;
+                                    product.Amount = prev.Amount;
+                                    product.Price = prev.Price;
+                                    product.Category = prev.Category;
+                                    product.CreationDate = prev.CreationDate;
 
                                     return true;
                                 }
