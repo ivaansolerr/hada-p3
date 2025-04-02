@@ -145,7 +145,7 @@ namespace proWeb
             if (cat == 2) ddlCategory.Text = "Gaming";
             if (cat == 3) ddlCategory.Text = "Home appliances";
 
-            txtCreationDate.Text = newProduct.CreationDate.ToString();
+            txtCreationDate.Text = newProduct.CreationDate.ToString("yyyy-MM-dd");
         }
 
         protected void btnReadPrev_Click(object sender, EventArgs e)
@@ -168,7 +168,7 @@ namespace proWeb
             if (cat == 2) ddlCategory.Text = "Gaming";
             if (cat == 3) ddlCategory.Text = "Home appliances";
 
-            txtCreationDate.Text = newProduct.CreationDate.ToString();
+            txtCreationDate.Text = newProduct.CreationDate.ToString("yyyy-MM-dd");
         }
 
         protected void btnReadNext_Click(object sender, EventArgs e)
@@ -191,7 +191,7 @@ namespace proWeb
             if (cat == 2) ddlCategory.Text = "Gaming";
             if (cat == 3) ddlCategory.Text = "Home appliances";
 
-            txtCreationDate.Text = newProduct.CreationDate.ToString();
+            txtCreationDate.Text = newProduct.CreationDate.ToString("yyyy-MM-dd");
         }
     }
 }
