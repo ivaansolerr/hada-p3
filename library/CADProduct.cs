@@ -31,7 +31,6 @@ namespace library
                 using (myDb)
                 {
                     myDb.Open();
-                    // insert
                     string insertQuery = "INSERT INTO Products (name,code,amount,price,category,creationDate)" +
                         " VALUES (@Value1, @Value2, @Value3, @Value4, @Value5, @Value6)";
                     SqlCommand cmd = new SqlCommand(insertQuery, myDb);
@@ -43,8 +42,6 @@ namespace library
                         cmd.Parameters.AddWithValue("@Value4", product.Price);
                         cmd.Parameters.AddWithValue("@Value5", product.Category);
                         cmd.Parameters.AddWithValue("@Value6", product.CreationDate);
-
-                        //Console.WriteLine(insertQuery);
 
                         cmd.ExecuteNonQuery();
 
@@ -69,7 +66,6 @@ namespace library
                 using (myDb)
                 {
                     myDb.Open();
-                    // insert
                     string insertQuery = "UPDATE Products SET name=@Value2,amount=@Value3,price=@Value4,category=@Value5,creationDate=@Value6 WHERE code=@Value1";
                     SqlCommand cmd = new SqlCommand(insertQuery, myDb);
                     using (cmd)
@@ -104,7 +100,6 @@ namespace library
                 using (myDb)
                 {
                     myDb.Open();
-                    // insert
                     string insertQuery = "DELETE FROM Products where code=@Value1";
                     SqlCommand cmd = new SqlCommand(insertQuery, myDb);
                     using (cmd)
@@ -233,6 +228,11 @@ namespace library
                             product.CreationDate = DateTime.Parse(readd["creationDate"].ToString());
                         }
 
+                        else
+                        {
+                            return false;
+                        }
+
                         myDb.Close();
                     }
                 }
@@ -258,7 +258,6 @@ namespace library
                     SqlCommand cmd = new SqlCommand(insertQuery, myDb);
                     using (cmd)
                     {
-                        //cmd.Parameters.AddWithValue("@Value1", product.Code);
 
                         SqlDataReader readd = cmd.ExecuteReader();
 
@@ -275,6 +274,8 @@ namespace library
                         }
 
                         readd.Close();
+
+                        if (list[0].Code == product.Code) return false;
 
                         for (int i = 0; i < list.Count; i++)
                         {

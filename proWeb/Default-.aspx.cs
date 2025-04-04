@@ -229,10 +229,12 @@ namespace proWeb
                     txtPrice.Text = newProduct.Price.ToString();
                     ddlCategory.SelectedValue = newProduct.Category.ToString();
                     txtCreationDate.Text = newProduct.CreationDate.ToString("yyyy-MM-dd");
+                    DisplayMessage.Text = "Operation succeeded";
                 }
 
                 else
                 {
+                    DisplayMessage.Text = "Operation failed";
                     txtCode.Text = null;
                     txtName.Text = null;
                     txtAmount.Text = null;
@@ -259,10 +261,12 @@ namespace proWeb
                     txtPrice.Text = newProduct.Price.ToString();
                     ddlCategory.SelectedValue = newProduct.Category.ToString();
                     txtCreationDate.Text = newProduct.CreationDate.ToString("yyyy-MM-dd");
+                    DisplayMessage.Text = "Operation succeeded";
                 }
 
                 else
                 {
+                    DisplayMessage.Text = "Operation failed";
                     txtCode.Text = null;
                     txtName.Text = null;
                     txtAmount.Text = null;
@@ -291,10 +295,12 @@ namespace proWeb
                     txtPrice.Text = newProduct.Price.ToString();
                     ddlCategory.SelectedValue = newProduct.Category.ToString();
                     txtCreationDate.Text = newProduct.CreationDate.ToString("yyyy-MM-dd");
+                    DisplayMessage.Text = "Operation succeeded";
                 }
 
                 else
                 {
+                    DisplayMessage.Text = "Operation failed";
                     txtCode.Text = null;
                     txtName.Text = null;
                     txtAmount.Text = null;
@@ -323,10 +329,12 @@ namespace proWeb
                     txtPrice.Text = newProduct.Price.ToString();
                     ddlCategory.SelectedValue = newProduct.Category.ToString();
                     txtCreationDate.Text = newProduct.CreationDate.ToString("yyyy-MM-dd");
+                    DisplayMessage.Text = "Operation succeeded";
                 }
 
                 else
                 {
+                    DisplayMessage.Text = "Operation failed";
                     txtCode.Text = null;
                     txtName.Text = null;
                     txtAmount.Text = null;
