@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
@@ -49,12 +50,55 @@ namespace proWeb
 
                 newProduct.Code = txtCode.Text;
                 newProduct.Name = txtName.Text;
-                newProduct.Amount = int.Parse(txtAmount.Text);
-                newProduct.Price = float.Parse(txtPrice.Text);
+
+                try
+                {
+                    int amount = int.Parse(txtAmount.Text);
+                    newProduct.Amount = amount;
+                }
+                catch (Exception ex)
+                {
+                    DisplayMessage.Text = "Operation failed";
+                    Console.WriteLine("User operation has failed. Error: {0}",ex.Message);
+                    txtCode.Text = null;
+                    txtName.Text = null;
+                    txtAmount.Text = null;
+                    txtPrice.Text = null;
+                    ddlCategory.Text = null;
+                    txtCreationDate.Text = null;
+                    return;
+                }
+
+                try
+                {
+                    float price = float.Parse(txtPrice.Text);
+                    newProduct.Price = price;
+                }
+                catch (Exception ex)
+                {
+                    DisplayMessage.Text = "Operation failed.";
+                    Console.WriteLine("User operation has failed. Error: {0}", ex.Message);
+                    txtCode.Text = null;
+                    txtName.Text = null;
+                    txtAmount.Text = null;
+                    txtPrice.Text = null;
+                    ddlCategory.Text = null;
+                    txtCreationDate.Text = null;
+                    return;
+                }
+
                 newProduct.Category = int.Parse(ddlCategory.SelectedValue);
                 newProduct.CreationDate = DateTime.Parse(txtCreationDate.Text);
 
                 newProduct.Create();
+                DisplayMessage.Text = "Operation succeeded.";
+                txtCode.Text = null;
+                txtName.Text = null;
+                txtAmount.Text = null;
+                txtPrice.Text = null;
+                ddlCategory.Text = null;
+                txtCreationDate.Text = null;
+                return;
             }
 
             txtCode.Text = null;
@@ -63,6 +107,8 @@ namespace proWeb
             txtPrice.Text = null;
             ddlCategory.Text = null;
             txtCreationDate.Text = null;
+
+            DisplayMessage.Text = "Operation failed";
         }
 
         protected void btnUpdate_Click(object sender, EventArgs e)
@@ -74,12 +120,55 @@ namespace proWeb
 
                 newProduct.Code = txtCode.Text;
                 newProduct.Name = txtName.Text;
-                newProduct.Amount = int.Parse(txtAmount.Text);
-                newProduct.Price = float.Parse(txtPrice.Text);
+
+                try
+                {
+                    int amount = int.Parse(txtAmount.Text);
+                    newProduct.Amount = amount;
+                }
+                catch (Exception ex)
+                {
+                    DisplayMessage.Text = "Operation failed";
+                    Console.WriteLine("User operation has failed. Error: {0}", ex.Message);
+                    txtCode.Text = null;
+                    txtName.Text = null;
+                    txtAmount.Text = null;
+                    txtPrice.Text = null;
+                    ddlCategory.Text = null;
+                    txtCreationDate.Text = null;
+                    return;
+                }
+
+                try
+                {
+                    float price = float.Parse(txtPrice.Text);
+                    newProduct.Price = price;
+                }
+                catch (Exception ex)
+                {
+                    DisplayMessage.Text = "Operation failed";
+                    Console.WriteLine("User operation has failed. Error: {0}", ex.Message);
+                    txtCode.Text = null;
+                    txtName.Text = null;
+                    txtAmount.Text = null;
+                    txtPrice.Text = null;
+                    ddlCategory.Text = null;
+                    txtCreationDate.Text = null;
+                    return;
+                }
+
                 newProduct.Category = int.Parse(ddlCategory.SelectedValue);
                 newProduct.CreationDate = DateTime.Parse(txtCreationDate.Text);
 
                 newProduct.Update();
+                DisplayMessage.Text = "Operation succeeded.";
+                txtCode.Text = null;
+                txtName.Text = null;
+                txtAmount.Text = null;
+                txtPrice.Text = null;
+                ddlCategory.Text = null;
+                txtCreationDate.Text = null;
+                return;
             }
 
             txtCode.Text = null;
@@ -88,6 +177,8 @@ namespace proWeb
             txtPrice.Text = null;
             ddlCategory.Text = null;
             txtCreationDate.Text = null;
+
+            DisplayMessage.Text = "Operation failed";
         }
 
         protected void btnDelete_Click(object sender, EventArgs e)
@@ -98,7 +189,17 @@ namespace proWeb
 
                 newProduct.Code = txtCode.Text;
 
-                newProduct.Delete();
+                if (newProduct.Delete())
+                {
+                    DisplayMessage.Text = "Operation succeeded";
+                    txtCode.Text = null;
+                    txtName.Text = null;
+                    txtAmount.Text = null;
+                    txtPrice.Text = null;
+                    ddlCategory.Text = null;
+                    txtCreationDate.Text = null;
+                    return;
+                }
             }
 
             txtCode.Text = null;
@@ -107,78 +208,133 @@ namespace proWeb
             txtPrice.Text = null;
             ddlCategory.Text = null;
             txtCreationDate.Text = null;
+
+            DisplayMessage.Text = "Operation failed";
         }
 
         protected void btnRead_Click(object sender, EventArgs e)
         {
+            DisplayMessage.Text = "";
+
             if (txtCode.Text != null)
             {
                 ENProduct newProduct = new ENProduct();
 
                 newProduct.Code = txtCode.Text;
 
-                newProduct.Read();
+                if (newProduct.Read())
+                {
+                    txtName.Text = newProduct.Name;
+                    txtAmount.Text = newProduct.Amount.ToString();
+                    txtPrice.Text = newProduct.Price.ToString();
+                    ddlCategory.SelectedValue = newProduct.Category.ToString();
+                    txtCreationDate.Text = newProduct.CreationDate.ToString("yyyy-MM-dd");
+                }
 
-                txtName.Text = newProduct.Name;
-                txtAmount.Text = newProduct.Amount.ToString();
-                txtPrice.Text = newProduct.Price.ToString();
-                ddlCategory.SelectedValue = newProduct.Category.ToString();
-                txtCreationDate.Text = newProduct.CreationDate.ToString("yyyy-MM-dd");
+                else
+                {
+                    txtCode.Text = null;
+                    txtName.Text = null;
+                    txtAmount.Text = null;
+                    txtPrice.Text = null;
+                    ddlCategory.Text = null;
+                    txtCreationDate.Text = null;
+                }
+
             }
         }
 
         protected void btnReadFirst_Click(object sender, EventArgs e)
         {
+            DisplayMessage.Text = "";
+
             if (txtCode.Text != null)
             {
                 ENProduct newProduct = new ENProduct();
 
-                newProduct.ReadFirst();
+                if (newProduct.ReadFirst())
+                {
+                    txtCode.Text = newProduct.Code.ToString();
+                    txtName.Text = newProduct.Name;
+                    txtAmount.Text = newProduct.Amount.ToString();
+                    txtPrice.Text = newProduct.Price.ToString();
+                    ddlCategory.SelectedValue = newProduct.Category.ToString();
+                    txtCreationDate.Text = newProduct.CreationDate.ToString("yyyy-MM-dd");
+                }
 
-                txtCode.Text = newProduct.Code.ToString();
-                txtName.Text = newProduct.Name;
-                txtAmount.Text = newProduct.Amount.ToString();
-                txtPrice.Text = newProduct.Price.ToString();
-                ddlCategory.SelectedValue = newProduct.Category.ToString();
-                txtCreationDate.Text = newProduct.CreationDate.ToString("yyyy-MM-dd");
+                else
+                {
+                    txtCode.Text = null;
+                    txtName.Text = null;
+                    txtAmount.Text = null;
+                    txtPrice.Text = null;
+                    ddlCategory.Text = null;
+                    txtCreationDate.Text = null;
+                }
             }
         }
 
         protected void btnReadPrev_Click(object sender, EventArgs e)
         {
+            DisplayMessage.Text = "";
+
             if (txtCode.Text != null)
             {
                 ENProduct newProduct = new ENProduct();
 
                 newProduct.Code = txtCode.Text;
 
-                newProduct.ReadPrev();
+                if (newProduct.ReadPrev())
+                {
+                    txtCode.Text = newProduct.Code.ToString();
+                    txtName.Text = newProduct.Name;
+                    txtAmount.Text = newProduct.Amount.ToString();
+                    txtPrice.Text = newProduct.Price.ToString();
+                    ddlCategory.SelectedValue = newProduct.Category.ToString();
+                    txtCreationDate.Text = newProduct.CreationDate.ToString("yyyy-MM-dd");
+                }
 
-                txtCode.Text = newProduct.Code.ToString();
-                txtName.Text = newProduct.Name;
-                txtAmount.Text = newProduct.Amount.ToString();
-                txtPrice.Text = newProduct.Price.ToString();
-                ddlCategory.SelectedValue = newProduct.Category.ToString();
-                txtCreationDate.Text = newProduct.CreationDate.ToString("yyyy-MM-dd");
+                else
+                {
+                    txtCode.Text = null;
+                    txtName.Text = null;
+                    txtAmount.Text = null;
+                    txtPrice.Text = null;
+                    ddlCategory.Text = null;
+                    txtCreationDate.Text = null;
+                }
             }
         }
 
         protected void btnReadNext_Click(object sender, EventArgs e)
         {
+            DisplayMessage.Text = "";
+
             if (txtCode.Text != null)
             {
                 ENProduct newProduct = new ENProduct();
 
                 newProduct.Code = txtCode.Text;
 
-                newProduct.ReadNext();
+                if (newProduct.ReadNext())
+                {
+                    txtCode.Text = newProduct.Code;
+                    txtName.Text = newProduct.Name;
+                    txtAmount.Text = newProduct.Amount.ToString();
+                    txtPrice.Text = newProduct.Price.ToString();
+                    ddlCategory.SelectedValue = newProduct.Category.ToString();
+                    txtCreationDate.Text = newProduct.CreationDate.ToString("yyyy-MM-dd");
+                }
 
-                txtCode.Text = newProduct.Code;
-                txtName.Text = newProduct.Name;
-                txtAmount.Text = newProduct.Amount.ToString();
-                txtPrice.Text = newProduct.Price.ToString();
-                ddlCategory.SelectedValue = newProduct.Category.ToString();
-                txtCreationDate.Text = newProduct.CreationDate.ToString("yyyy-MM-dd");
+                else
+                {
+                    txtCode.Text = null;
+                    txtName.Text = null;
+                    txtAmount.Text = null;
+                    txtPrice.Text = null;
+                    ddlCategory.Text = null;
+                    txtCreationDate.Text = null;
+                }
             }
         }
     }
