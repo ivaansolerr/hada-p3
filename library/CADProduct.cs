@@ -184,9 +184,12 @@ namespace library
                             product.Price = float.Parse(readd["price"].ToString());
                             product.Category = int.Parse(readd["category"].ToString());
                             product.CreationDate = DateTime.Parse(readd["creationDate"].ToString());
+                        } else
+                        {
+                            return false;
                         }
 
-                        myDb.Close();
+                            myDb.Close();
                     }
                 }
             }
