@@ -36,7 +36,6 @@ namespace proWeb
             {
                 ddlCategory.Items.Add(c.Name);
             }
-
         }
         protected void btnCreate_Click(object sender, EventArgs e)
         {
@@ -49,10 +48,10 @@ namespace proWeb
 
             string cat = ddlCategory.Text;
 
-            if (cat == "Computing") newProduct.Category = 0;
-            if (cat == "Telephony") newProduct.Category = 1;
-            if (cat == "Gaming") newProduct.Category = 2;
-            if (cat == "Home appliances") newProduct.Category = 3;
+            if (cat == "Computing") newProduct.Category = 1;
+            if (cat == "Telephony") newProduct.Category = 2;
+            if (cat == "Gaming") newProduct.Category = 3;
+            if (cat == "Home appliances") newProduct.Category = 4;
 
             newProduct.CreationDate = DateTime.Parse(txtCreationDate.Text);
 
@@ -77,10 +76,10 @@ namespace proWeb
 
             string cat = ddlCategory.Text;
 
-            if (cat == "Computing") newProduct.Category = 0;
-            if (cat == "Telephony") newProduct.Category = 1;
-            if (cat == "Gaming") newProduct.Category = 2;
-            if (cat == "Home appliances") newProduct.Category = 3;
+            if (cat == "Computing") newProduct.Category = 1;
+            if (cat == "Telephony") newProduct.Category = 2;
+            if (cat == "Gaming") newProduct.Category = 3;
+            if (cat == "Home appliances") newProduct.Category = 4;
 
             newProduct.CreationDate = DateTime.Parse(txtCreationDate.Text);
 
@@ -124,10 +123,10 @@ namespace proWeb
 
             int cat = newProduct.Category;
 
-            if (cat == 0) ddlCategory.Text = "Computing";
-            if (cat == 1) ddlCategory.Text = "Telephony";
-            if (cat == 2) ddlCategory.Text = "Gaming";
-            if (cat == 3) ddlCategory.Text = "Home appliances";
+            if (cat == 1) ddlCategory.Text = "Computing";
+            if (cat == 2) ddlCategory.Text = "Telephony";
+            if (cat == 3) ddlCategory.Text = "Gaming";
+            if (cat == 4) ddlCategory.Text = "Home appliances";
 
             txtCreationDate.Text = newProduct.CreationDate.ToString("yyyy-MM-dd");
         }
@@ -145,10 +144,10 @@ namespace proWeb
 
             int cat = newProduct.Category;
 
-            if (cat == 0) ddlCategory.Text = "Computing";
-            if (cat == 1) ddlCategory.Text = "Telephony";
-            if (cat == 2) ddlCategory.Text = "Gaming";
-            if (cat == 3) ddlCategory.Text = "Home appliances";
+            if (cat == 1) ddlCategory.Text = "Computing";
+            if (cat == 2) ddlCategory.Text = "Telephony";
+            if (cat == 3) ddlCategory.Text = "Gaming";
+            if (cat == 4) ddlCategory.Text = "Home appliances";
 
             txtCreationDate.Text = newProduct.CreationDate.ToString("yyyy-MM-dd");
         }
@@ -168,10 +167,10 @@ namespace proWeb
 
             int cat = newProduct.Category;
 
-            if (cat == 0) ddlCategory.Text = "Computing";
-            if (cat == 1) ddlCategory.Text = "Telephony";
-            if (cat == 2) ddlCategory.Text = "Gaming";
-            if (cat == 3) ddlCategory.Text = "Home appliances";
+            if (cat == 1) ddlCategory.Text = "Computing";
+            if (cat == 2) ddlCategory.Text = "Telephony";
+            if (cat == 3) ddlCategory.Text = "Gaming";
+            if (cat == 4) ddlCategory.Text = "Home appliances";
 
             txtCreationDate.Text = newProduct.CreationDate.ToString("yyyy-MM-dd");
         }
@@ -191,10 +190,10 @@ namespace proWeb
 
             int cat = newProduct.Category;
 
-            if (cat == 0) ddlCategory.Text = "Computing";
-            if (cat == 1) ddlCategory.Text = "Telephony";
-            if (cat == 2) ddlCategory.Text = "Gaming";
-            if (cat == 3) ddlCategory.Text = "Home appliances";
+            if (cat == 1) ddlCategory.Text = "Computing";
+            if (cat == 2) ddlCategory.Text = "Telephony";
+            if (cat == 3) ddlCategory.Text = "Gaming";
+            if (cat == 4) ddlCategory.Text = "Home appliances";
 
             txtCreationDate.Text = newProduct.CreationDate.ToString("yyyy-MM-dd");
         }
