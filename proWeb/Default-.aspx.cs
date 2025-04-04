@@ -40,23 +40,6 @@ namespace proWeb
                     ddlCategory.Items.Add(new ListItem(c.Name, c.Id.ToString()));
                 }
             }
-<<<<<<< HEAD
-
-            List<ENCategory> list = new List<ENCategory>();
-
-            list = cADCategory.readAll();
-
-            if (ddlCategory.Items.Count > 0)
-            {
-                ddlCategory.Items.Clear();
-            }
-
-            foreach (ENCategory c in list)
-            {
-                ddlCategory.Items.Add(c.Name);
-            }
-=======
->>>>>>> andrei
         }
         protected void btnCreate_Click(object sender, EventArgs e)
         {
@@ -86,12 +69,6 @@ namespace proWeb
                     return;
                 }
 
-<<<<<<< HEAD
-            if (cat == "Computing") newProduct.Category = 1;
-            if (cat == "Telephony") newProduct.Category = 2;
-            if (cat == "Gaming") newProduct.Category = 3;
-            if (cat == "Home appliances") newProduct.Category = 4;
-=======
                 try
                 {
                     float price = float.Parse(txtPrice.Text);
@@ -109,7 +86,6 @@ namespace proWeb
                     txtCreationDate.Text = null;
                     return;
                 }
->>>>>>> andrei
 
                 newProduct.Category = int.Parse(ddlCategory.SelectedValue);
                 newProduct.CreationDate = DateTime.Parse(txtCreationDate.Text);
@@ -163,12 +139,6 @@ namespace proWeb
                     return;
                 }
 
-<<<<<<< HEAD
-            if (cat == "Computing") newProduct.Category = 1;
-            if (cat == "Telephony") newProduct.Category = 2;
-            if (cat == "Gaming") newProduct.Category = 3;
-            if (cat == "Home appliances") newProduct.Category = 4;
-=======
                 try
                 {
                     float price = float.Parse(txtPrice.Text);
@@ -186,7 +156,6 @@ namespace proWeb
                     txtCreationDate.Text = null;
                     return;
                 }
->>>>>>> andrei
 
                 newProduct.Category = int.Parse(ddlCategory.SelectedValue);
                 newProduct.CreationDate = DateTime.Parse(txtCreationDate.Text);
@@ -271,17 +240,7 @@ namespace proWeb
                     ddlCategory.Text = null;
                     txtCreationDate.Text = null;
                 }
-
-<<<<<<< HEAD
-            if (cat == 1) ddlCategory.Text = "Computing";
-            if (cat == 2) ddlCategory.Text = "Telephony";
-            if (cat == 3) ddlCategory.Text = "Gaming";
-            if (cat == 4) ddlCategory.Text = "Home appliances";
-
-            txtCreationDate.Text = newProduct.CreationDate.ToString("yyyy-MM-dd");
-=======
             }
->>>>>>> andrei
         }
 
         protected void btnReadFirst_Click(object sender, EventArgs e)
@@ -302,16 +261,6 @@ namespace proWeb
                     txtCreationDate.Text = newProduct.CreationDate.ToString("yyyy-MM-dd");
                 }
 
-<<<<<<< HEAD
-            int cat = newProduct.Category;
-
-            if (cat == 1) ddlCategory.Text = "Computing";
-            if (cat == 2) ddlCategory.Text = "Telephony";
-            if (cat == 3) ddlCategory.Text = "Gaming";
-            if (cat == 4) ddlCategory.Text = "Home appliances";
-
-            txtCreationDate.Text = newProduct.CreationDate.ToString("yyyy-MM-dd");
-=======
                 else
                 {
                     txtCode.Text = null;
@@ -322,7 +271,6 @@ namespace proWeb
                     txtCreationDate.Text = null;
                 }
             }
->>>>>>> andrei
         }
 
         protected void btnReadPrev_Click(object sender, EventArgs e)
@@ -345,16 +293,6 @@ namespace proWeb
                     txtCreationDate.Text = newProduct.CreationDate.ToString("yyyy-MM-dd");
                 }
 
-<<<<<<< HEAD
-            int cat = newProduct.Category;
-
-            if (cat == 1) ddlCategory.Text = "Computing";
-            if (cat == 2) ddlCategory.Text = "Telephony";
-            if (cat == 3) ddlCategory.Text = "Gaming";
-            if (cat == 4) ddlCategory.Text = "Home appliances";
-
-            txtCreationDate.Text = newProduct.CreationDate.ToString("yyyy-MM-dd");
-=======
                 else
                 {
                     txtCode.Text = null;
@@ -365,7 +303,6 @@ namespace proWeb
                     txtCreationDate.Text = null;
                 }
             }
->>>>>>> andrei
         }
 
         protected void btnReadNext_Click(object sender, EventArgs e)
@@ -388,16 +325,6 @@ namespace proWeb
                     txtCreationDate.Text = newProduct.CreationDate.ToString("yyyy-MM-dd");
                 }
 
-<<<<<<< HEAD
-            int cat = newProduct.Category;
-
-            if (cat == 1) ddlCategory.Text = "Computing";
-            if (cat == 2) ddlCategory.Text = "Telephony";
-            if (cat == 3) ddlCategory.Text = "Gaming";
-            if (cat == 4) ddlCategory.Text = "Home appliances";
-
-            txtCreationDate.Text = newProduct.CreationDate.ToString("yyyy-MM-dd");
-=======
                 else
                 {
                     txtCode.Text = null;
@@ -408,7 +335,6 @@ namespace proWeb
                     txtCreationDate.Text = null;
                 }
             }
->>>>>>> andrei
         }
     }
 }
