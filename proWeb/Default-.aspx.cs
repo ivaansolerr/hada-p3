@@ -43,8 +43,8 @@ namespace proWeb
         }
         protected void btnCreate_Click(object sender, EventArgs e)
         {
-            if (txtCode.Text != null && txtName.Text != null && txtAmount.Text != null
-                && txtPrice.Text != null && ddlCategory.Text != null && txtCreationDate.Text != null)
+            if (txtCode.Text != "" && txtName.Text != "" && txtAmount.Text != ""
+                && txtPrice.Text != "" && ddlCategory.Text != "" && txtCreationDate.Text != "")
             {
                 ENProduct newProduct = new ENProduct();
 
@@ -113,8 +113,8 @@ namespace proWeb
 
         protected void btnUpdate_Click(object sender, EventArgs e)
         {
-            if (txtCode.Text != null && txtName.Text != null && txtAmount.Text != null
-                && txtPrice.Text != null && ddlCategory.Text != null && txtCreationDate.Text != null)
+            if (txtCode.Text != "" && txtName.Text != "" && txtAmount.Text != ""
+                && txtPrice.Text != "" && ddlCategory.Text != "" && txtCreationDate.Text != "")
             {
                 ENProduct newProduct = new ENProduct();
 
@@ -183,7 +183,7 @@ namespace proWeb
 
         protected void btnDelete_Click(object sender, EventArgs e)
         {
-            if (txtCode.Text != null)
+            if (txtCode.Text != "")
             {
                 ENProduct newProduct = new ENProduct();
 
@@ -216,7 +216,7 @@ namespace proWeb
         {
             DisplayMessage.Text = "";
 
-            if (txtCode.Text != null)
+            if (txtCode.Text != "")
             {
                 ENProduct newProduct = new ENProduct();
 
@@ -243,37 +243,45 @@ namespace proWeb
                     txtCreationDate.Text = null;
                 }
             }
+
+            else
+            {
+                DisplayMessage.Text = "Operation failed";
+                txtCode.Text = null;
+                txtName.Text = null;
+                txtAmount.Text = null;
+                txtPrice.Text = null;
+                ddlCategory.Text = null;
+                txtCreationDate.Text = null;
+            }
         }
 
         protected void btnReadFirst_Click(object sender, EventArgs e)
         {
             DisplayMessage.Text = "";
 
-            if (txtCode.Text != null)
+            ENProduct newProduct = new ENProduct();
+
+            if (newProduct.ReadFirst())
             {
-                ENProduct newProduct = new ENProduct();
+                txtCode.Text = newProduct.Code.ToString();
+                txtName.Text = newProduct.Name;
+                txtAmount.Text = newProduct.Amount.ToString();
+                txtPrice.Text = newProduct.Price.ToString();
+                ddlCategory.SelectedValue = newProduct.Category.ToString();
+                txtCreationDate.Text = newProduct.CreationDate.ToString("yyyy-MM-dd");
+                DisplayMessage.Text = "Operation succeeded";
+            }
 
-                if (newProduct.ReadFirst())
-                {
-                    txtCode.Text = newProduct.Code.ToString();
-                    txtName.Text = newProduct.Name;
-                    txtAmount.Text = newProduct.Amount.ToString();
-                    txtPrice.Text = newProduct.Price.ToString();
-                    ddlCategory.SelectedValue = newProduct.Category.ToString();
-                    txtCreationDate.Text = newProduct.CreationDate.ToString("yyyy-MM-dd");
-                    DisplayMessage.Text = "Operation succeeded";
-                }
-
-                else
-                {
-                    DisplayMessage.Text = "Operation failed";
-                    txtCode.Text = null;
-                    txtName.Text = null;
-                    txtAmount.Text = null;
-                    txtPrice.Text = null;
-                    ddlCategory.Text = null;
-                    txtCreationDate.Text = null;
-                }
+            else
+            {
+                DisplayMessage.Text = "Operation failed";
+                txtCode.Text = null;
+                txtName.Text = null;
+                txtAmount.Text = null;
+                txtPrice.Text = null;
+                ddlCategory.Text = null;
+                txtCreationDate.Text = null;
             }
         }
 
@@ -281,7 +289,7 @@ namespace proWeb
         {
             DisplayMessage.Text = "";
 
-            if (txtCode.Text != null)
+            if (txtCode.Text != "")
             {
                 ENProduct newProduct = new ENProduct();
 
@@ -309,13 +317,24 @@ namespace proWeb
                     txtCreationDate.Text = null;
                 }
             }
+
+            else
+            {
+                DisplayMessage.Text = "Operation failed";
+                txtCode.Text = null;
+                txtName.Text = null;
+                txtAmount.Text = null;
+                txtPrice.Text = null;
+                ddlCategory.Text = null;
+                txtCreationDate.Text = null;
+            }
         }
 
         protected void btnReadNext_Click(object sender, EventArgs e)
         {
             DisplayMessage.Text = "";
 
-            if (txtCode.Text != null)
+            if (txtCode.Text != "")
             {
                 ENProduct newProduct = new ENProduct();
 
@@ -342,6 +361,17 @@ namespace proWeb
                     ddlCategory.Text = null;
                     txtCreationDate.Text = null;
                 }
+            }
+
+            else
+            {
+                DisplayMessage.Text = "Operation failed";
+                txtCode.Text = null;
+                txtName.Text = null;
+                txtAmount.Text = null;
+                txtPrice.Text = null;
+                ddlCategory.Text = null;
+                txtCreationDate.Text = null;
             }
         }
     }
