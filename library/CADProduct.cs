@@ -47,6 +47,8 @@ namespace library
                         //Console.WriteLine(insertQuery);
 
                         cmd.ExecuteNonQuery();
+
+                        myDb.Close();
                     }
                 }
             }
